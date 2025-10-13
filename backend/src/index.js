@@ -3,10 +3,19 @@ import express from "express";
 import morgan from "morgan";
 import { connectDB } from "./config/configDb.js";
 import { routerApi } from "./routes/index.routes.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
+
+// Añadi cors para evita problemas
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
 // Ruta principal de bienvenida
 app.get("/", (req, res) => {
   res.send("¡Bienvenido a mi API REST con TypeORM!");

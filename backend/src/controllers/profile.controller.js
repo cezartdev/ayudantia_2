@@ -1,5 +1,5 @@
 import { handleSuccess, handleErrorClient, handleErrorServer } from "../Handlers/responseHandlers.js";
-import { updateProfile, deleteProfile } from "../services/profile.service.js";
+import { updateProfile, deleteProfile, } from "../services/profile.service.js";
 
 export function getPublicProfile(req, res) {
   handleSuccess(res, 200, "Perfil público obtenido exitosamente", {
